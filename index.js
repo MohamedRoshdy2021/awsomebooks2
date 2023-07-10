@@ -1,4 +1,7 @@
-class BookCollection {
+import updateClock from './moduls/luxon date.js';
+import Event from './moduls/eventlisenter.js';
+
+export default class BookCollection {
   static initialize() {
     const bookCollection = new BookCollection();
     return bookCollection;
@@ -6,31 +9,10 @@ class BookCollection {
 
   constructor() {
     this.bookList = document.getElementById('bookList');
-    this.addBtn = document.querySelector('.add');
-    const booksnavbar = document.querySelector('#books-nav');
-    const bookscontainer = document.querySelector('.bookslist');
-    const addbooks = document.querySelector('#new-book');
-    const maincontainer = document.querySelector('.main-page');
-    const contact = document.querySelector('#nav-contact');
-    const contactcontainer = document.querySelector('#contact');
     this.books = [];
     this.loadBooks();
-    this.addBtn.addEventListener('click', () => this.addBook());
-    booksnavbar.addEventListener('click', () => {
-      bookscontainer.style.display = 'flex';
-      maincontainer.style.display = 'none';
-      contactcontainer.style.display = 'none';
-    });
-    addbooks.addEventListener('click', () => {
-      bookscontainer.style.display = 'none';
-      maincontainer.style.display = 'flex';
-      contactcontainer.style.display = 'none';
-    });
-    contact.addEventListener('click', () => {
-      bookscontainer.style.display = 'none';
-      maincontainer.style.display = 'none';
-      contactcontainer.style.display = 'flex';
-    });
+    updateClock();
+    this.event = new Event(this);
   }
 
   saveBooks() {
@@ -68,11 +50,6 @@ class BookCollection {
     const authorInput = document.getElementById('authorInput');
     const title = titleInput.value;
     const author = authorInput.value;
-
-    if (title === '' || author === '') {
-      alert('Please enter both the title and author.');
-      return;
-    }
 
     const book = {
       title,
