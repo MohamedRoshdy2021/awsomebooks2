@@ -162,8 +162,6 @@ coming soon!
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 Mohammed roshdy
 
 - GitHub: [@githubhandle](https://github.com/MohamedRoshdy2021)
@@ -172,6 +170,9 @@ coming soon!
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
+
+- will use webpack as a module bundler 
+- will test the app by unit testing library's like jest
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
